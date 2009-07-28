@@ -1,5 +1,4 @@
-UnusedTranslations
-==================
+= Unused Translations Rails Plugin
 
 Displays the translations stored in a locales file not called from the 'app' directory source code. It parses the source code to gather used translations keys and displays the translations not used.
 
@@ -11,10 +10,14 @@ For now, it recognizes calls like:
 
 It's definitely a hack-like plug-in. Be carefull not to remove translations used by built-in helpers or error message generators.
 
-Example
-=======
+== Install
 
-<pre>script/unused_translations config/locales/en.yml</pre>
+  `script/plugin install git://github.com/o2sources/twittybrite.git`
+
+
+== Usage
+
+  `script/unused_translations config/locales/en.yml`
 
 
 Do not hesitate to fork and enhance this hack-like plug-in. :)
