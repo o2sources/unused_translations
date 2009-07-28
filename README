@@ -1,0 +1,22 @@
+UnusedTranslations
+==================
+
+Displays the translations stored in a locales file not called from the 'app' directory source code. It parses the source code to gather used translations keys and displays the translations not used.
+
+For now, it recognizes calls like:
+* I18n.t('project.new.title')
+* I18n.t('.title')
+* t('project.new.title')
+* t '.title'
+
+It's definitely a hack-like plug-in. Be carefull not to remove translations used by built-in helpers or error message generators.
+
+Example
+=======
+
+<pre>script/unused_translations config/locales/en.yml</pre>
+
+
+Do not hesitate to fork and enhance this hack-like plug-in. :)
+
+Copyright (c) 2009 Philippe Creux & Lucien Boix for O2Sources, released under the MIT license

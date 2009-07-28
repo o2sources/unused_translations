@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
+
+require "unused_translations"
+
+raise "Usage: script/unused_translations config/locales/en.yml" unless ARGV[0]
+puts UnusedTranslations.main(ARGV[0]).to_yaml
