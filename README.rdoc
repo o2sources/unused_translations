@@ -12,12 +12,12 @@ It's definitely a hack-like plug-in. Be carefull not to remove translations used
 
 == Install
 
-  `script/plugin install git://github.com/o2sources/twittybrite.git`
+  script/plugin install git://github.com/o2sources/unused_translations.git
 
 
 == Usage
 
-  `script/unused_translations config/locales/en.yml`
+  script/unused_translations config/locales/en.yml
 
 
 Do not hesitate to fork and enhance this hack-like plug-in. :)
