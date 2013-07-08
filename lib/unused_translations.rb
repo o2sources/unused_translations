@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # This script parses files in app to build up a listing of used translations
 # and compare it with your local file
-
+require 'iconv' unless String.method_defined?(:encode)
 
 module UnusedTranslations
   #RAILS_ROOT = File.join(File.dirname(__FILE__), ['..'] * 4)
@@ -100,11 +100,17 @@ module UnusedTranslations
   end
 
   def self.file_list
-    Dir[File.join(RAILS_ROOT, 'app', '**', '*.*')]
+    Dir[File.join(Rails.root, 'app', '**', '*.*')]
   end
 
   def self.parse_source_code(file)
     code = File.read(file)
+    if String.method_defined?(:encode)
+      code.encode!('UTF-8', 'UTF-8', :invalid => :replace)
+    else
+      ic = Iconv.new('UTF-8', 'UTF-8//IGNORE')
+      code = ic.iconv(file_contents)
+    end
     keys = code.scan(/\Wt[\( ]?["']([^"']*)["']\)?/)
     keys.flatten
   end
